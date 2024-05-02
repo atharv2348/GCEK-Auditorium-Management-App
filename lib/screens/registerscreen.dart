@@ -165,32 +165,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
               height: 20,
             ),
             confirmpasswordField,
-            const SizedBox(
-              height: 20,
-            ),
-            DropdownButtonFormField(
-              items: _role.map((e) {
-                return DropdownMenuItem(
-                    value: e,
-                    child: Text(
-                      e,
-                      style: const TextStyle(
-                        color: Colors.black,
-                      ),
-                    ));
-              }).toList(),
-              onChanged: (val) {
-                setState(() {
-                  _selectedValue = val as String;
-                });
-              },
-              icon: const Icon(
-                Icons.arrow_drop_down_circle,
-                color: Colors.grey,
-              ),
-              dropdownColor: Colors.white,
-              decoration: kBoxDecoration.copyWith(hintText: 'Select your role'),
-            ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // DropdownButtonFormField(
+            //   items: _role.map((e) {
+            //     return DropdownMenuItem(
+            //         value: e,
+            //         child: Text(
+            //           e,
+            //           style: const TextStyle(
+            //             color: Colors.black,
+            //           ),
+            //         ));
+            //   }).toList(),
+            //   onChanged: (val) {
+            //     setState(() {
+            //       _selectedValue = val as String;
+            //     });
+            //   },
+            //   icon: const Icon(
+            //     Icons.arrow_drop_down_circle,
+            //     color: Colors.grey,
+            //   ),
+            //   dropdownColor: Colors.white,
+            //   decoration: kBoxDecoration.copyWith(hintText: 'Select your role'),
+            // ),
             const SizedBox(
               height: 20,
             ),
@@ -210,7 +210,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             .doc(emailController.text)
                             .set({
                           "email": emailController.text,
-                          "role": _selectedValue
+                          "role": "student" 
                         });
                         // print("Database updated");
                         final user = await auth.registeruser(

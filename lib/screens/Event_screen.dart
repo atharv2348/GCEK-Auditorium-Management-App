@@ -159,6 +159,8 @@ class _EventPageState extends State<EventPage> {
   TextEditingController startTime = TextEditingController();
   TextEditingController endTime = TextEditingController();
   TextEditingController Eventcategory = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
+  TextEditingController audience_count = TextEditingController();
 
   final _catagory = [
     'TPO',
@@ -207,7 +209,12 @@ class _EventPageState extends State<EventPage> {
                   EventName.text = value;
                 },
                 style: const TextStyle(color: Colors.black),
-                decoration: kBoxDecoration.copyWith(hintText: 'Event Name'),
+                decoration: kBoxDecoration.copyWith(
+                    hintText: 'Event Name',
+                    prefixIcon: Icon(
+                      Icons.notes_rounded,
+                      color: Colors.grey,
+                    )),
               ),
               const SizedBox(
                 height: 20.0,
@@ -218,7 +225,12 @@ class _EventPageState extends State<EventPage> {
                     Organizer.text = value;
                   },
                   style: const TextStyle(color: Colors.black),
-                  decoration: kBoxDecoration.copyWith(hintText: 'Organizer')),
+                  decoration: kBoxDecoration.copyWith(
+                      hintText: 'Organizer',
+                      prefixIcon: Icon(
+                        Icons.people_alt_rounded,
+                        color: Colors.grey,
+                      ))),
               const SizedBox(
                 height: 20.0,
               ),
@@ -230,8 +242,26 @@ class _EventPageState extends State<EventPage> {
                   EventDescription.text = value;
                 },
                 style: const TextStyle(color: Colors.black),
-                decoration:
-                    kBoxDecoration.copyWith(hintText: 'Event Description'),
+                decoration: kBoxDecoration.copyWith(
+                  hintText: 'Event Description',
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextField(
+                keyboardType: TextInputType.phone,
+                controller: phoneNumber,
+                onChanged: (value) {
+                  phoneNumber.text = value;
+                },
+                style: const TextStyle(color: Colors.black),
+                decoration: kBoxDecoration.copyWith(
+                    hintText: 'Phone Number',
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: Colors.grey,
+                    )),
               ),
               const SizedBox(
                 height: 20.0,
@@ -299,6 +329,25 @@ class _EventPageState extends State<EventPage> {
               const SizedBox(
                 height: 20.0,
               ),
+              TextField(
+                keyboardType: TextInputType.number,
+                controller: audience_count,
+                minLines: 1,
+                maxLines: null,
+                onChanged: (value) {
+                  audience_count.text = value;
+                },
+                style: const TextStyle(color: Colors.black),
+                decoration: kBoxDecoration.copyWith(
+                    hintText: 'Expected Audience Count',
+                    prefixIcon: Icon(
+                      Icons.people_alt_rounded,
+                      color: Colors.grey,
+                    )),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -338,7 +387,7 @@ class _EventPageState extends State<EventPage> {
                 ),
               ),
               const SizedBox(
-                height: 90.0,
+                height: 30.0,
               ),
               FutureBuilder(
                 future: fillGlobalEvents(),
@@ -423,15 +472,19 @@ class _EventPageState extends State<EventPage> {
                                           _timeController1.text),
                                       'requested_by': auth!.email,
                                       'requested_datetime': DateTime.now(),
+                                      "phone": phoneNumber.text,
+                                      "audience_count": audience_count.text
                                     });
                                     String emailBody =
                                         "${auth!.email} is requesting to access Auditorium Slot\nEvent Details are: \n"
                                         "Event Name: ${EventName.text}\n"
                                         "Organizer : ${Organizer.text}\n"
                                         "Event Description : ${EventDescription.text}\n"
+                                        "Contact Number: ${phoneNumber.text}"
                                         "Date of request : ${_dateController.text}\n"
                                         "Start Time : ${_timeController.text}\n"
                                         "End Time: ${_timeController1.text}\n"
+                                        "Expected Audience Count : ${audience_count.text} "
                                         "To Accept/Reject the slot request from the App\n"
                                         "Go to GCEK Auditorium App -> Auditorium Requestes\n";
 

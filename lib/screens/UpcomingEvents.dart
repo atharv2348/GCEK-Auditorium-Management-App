@@ -1,3 +1,4 @@
+import 'package:audi/widgets/bottom_sheet.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'const.dart';
@@ -44,8 +45,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                   padding:
                       const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
                   child: Container(
-                    height: 155,
-                    width: 350,
+                    width: MediaQuery.of(context).size.width,
                     margin: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -145,165 +145,8 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                                     showModalBottomSheet(
                                         context: context,
                                         builder: (builder) {
-                                          return Scaffold(
-                                            backgroundColor: Colors.white10,
-                                            appBar: AppBar(
-                                              backgroundColor: Colors.white10,
-                                              title:
-                                                  const Text("Event Details"),
-                                              centerTitle: true,
-                                            ),
-                                            body: Container(
-                                              height: MediaQuery.of(context)
-                                                  .size
-                                                  .height,
-                                              decoration: const BoxDecoration(
-                                                borderRadius: BorderRadius.only(
-                                                  topLeft:
-                                                      Radius.circular(50.0),
-                                                  topRight:
-                                                      Radius.circular(50.0),
-                                                ),
-                                              ),
-                                              child: SingleChildScrollView(
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Column(
-                                                    // mainAxisAlignment: MainAxisAlignment.center,
-                                                    // crossAxisAlignment: CrossAxisAlignment.center,
-                                                    children: [
-                                                      const SizedBox(
-                                                        height: 20,
-                                                      ),
-                                                      Text(
-                                                        "Event: ${message.data()['eventName'].toString()}",
-                                                        style: const TextStyle(
-                                                            fontSize: 30,
-                                                            color: Colors.grey,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w700),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Text(
-                                                        "Organizer: ${message.data()['organizer']}",
-                                                        style: const TextStyle(
-                                                          fontSize: 26,
-                                                          color: Colors.grey,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Text(
-                                                          "Date: ${date_parse(message.data()['date'].toString())}",
-                                                          style:
-                                                              const TextStyle(
-                                                            fontSize: 26,
-                                                            color: Colors.grey,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.start),
-                                                      const SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          const Text("Time:  ",
-                                                              style: TextStyle(
-                                                                fontSize: 26,
-                                                                color:
-                                                                    Colors.grey,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start),
-                                                          Text(
-                                                              "${message.data()['startTime'].toString()}  to  ",
-                                                              style:
-                                                                  const TextStyle(
-                                                                fontSize: 26,
-                                                                color:
-                                                                    Colors.grey,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start),
-                                                          Text(
-                                                              message
-                                                                  .data()[
-                                                                      'endTime']
-                                                                  .toString(),
-                                                              style:
-                                                                  const TextStyle(
-                                                                fontSize: 26,
-                                                                color:
-                                                                    Colors.grey,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start),
-                                                        ],
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      const Text(
-                                                          "Event Desciption: ",
-                                                          style: TextStyle(
-                                                            fontSize: 20,
-                                                            color: Colors.grey,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.start),
-                                                      const SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Text(
-                                                          message
-                                                              .data()[
-                                                                  'description']
-                                                              .toString(),
-                                                          style:
-                                                              const TextStyle(
-                                                            fontSize: 16,
-                                                            color: Colors.grey,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.start),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          );
+                                          return MyBottomSheet(
+                                              message: message);
                                         });
                                   },
                                   child: const Text("View More")),

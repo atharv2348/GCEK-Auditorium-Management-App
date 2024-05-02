@@ -12,16 +12,16 @@ class DevelopersPage extends StatelessWidget {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         backgroundColor: Colors.grey[200],
-          //   title: const Text(
-          //     "Developers",
-          //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-          //   ),
-          //   toolbarHeight: 65,
-          //   centerTitle: true,
-          //   backgroundColor: const Color(0xFFD9D9D9),
-          //   shape:
-          //       ContinuousRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          ),
+        //   title: const Text(
+        //     "Developers",
+        //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+        //   ),
+        //   toolbarHeight: 65,
+        //   centerTitle: true,
+        //   backgroundColor: const Color(0xFFD9D9D9),
+        //   shape:
+        //       ContinuousRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Center(

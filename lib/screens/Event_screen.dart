@@ -209,7 +209,12 @@ class _EventPageState extends State<EventPage> {
                   EventName.text = value;
                 },
                 style: const TextStyle(color: Colors.black),
-                decoration: kBoxDecoration.copyWith(hintText: 'Event Name'),
+                decoration: kBoxDecoration.copyWith(
+                    hintText: 'Event Name',
+                    prefixIcon: Icon(
+                      Icons.notes_rounded,
+                      color: Colors.grey,
+                    )),
               ),
               const SizedBox(
                 height: 20.0,
@@ -220,7 +225,12 @@ class _EventPageState extends State<EventPage> {
                     Organizer.text = value;
                   },
                   style: const TextStyle(color: Colors.black),
-                  decoration: kBoxDecoration.copyWith(hintText: 'Organizer')),
+                  decoration: kBoxDecoration.copyWith(
+                      hintText: 'Organizer',
+                      prefixIcon: Icon(
+                        Icons.people_alt_rounded,
+                        color: Colors.grey,
+                      ))),
               const SizedBox(
                 height: 20.0,
               ),
@@ -232,8 +242,9 @@ class _EventPageState extends State<EventPage> {
                   EventDescription.text = value;
                 },
                 style: const TextStyle(color: Colors.black),
-                decoration:
-                    kBoxDecoration.copyWith(hintText: 'Event Description'),
+                decoration: kBoxDecoration.copyWith(
+                  hintText: 'Event Description',
+                ),
               ),
               const SizedBox(
                 height: 20.0,
@@ -241,14 +252,16 @@ class _EventPageState extends State<EventPage> {
               TextField(
                 keyboardType: TextInputType.phone,
                 controller: phoneNumber,
-                minLines: 1,
-                maxLines: null,
                 onChanged: (value) {
                   phoneNumber.text = value;
                 },
                 style: const TextStyle(color: Colors.black),
                 decoration: kBoxDecoration.copyWith(
-                    hintText: 'Phone Number for contact'),
+                    hintText: 'Phone Number',
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: Colors.grey,
+                    )),
               ),
               const SizedBox(
                 height: 20.0,
@@ -326,7 +339,11 @@ class _EventPageState extends State<EventPage> {
                 },
                 style: const TextStyle(color: Colors.black),
                 decoration: kBoxDecoration.copyWith(
-                    hintText: 'Expected Audience Count'),
+                    hintText: 'Expected Audience Count',
+                    prefixIcon: Icon(
+                      Icons.people_alt_rounded,
+                      color: Colors.grey,
+                    )),
               ),
               const SizedBox(
                 height: 20.0,

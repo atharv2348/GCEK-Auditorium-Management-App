@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kBoxDecoration =  InputDecoration(
+const kBoxDecoration = InputDecoration(
     hintText: 'Event name',
     hintStyle: TextStyle(color: Colors.grey),
     contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
@@ -11,7 +11,7 @@ const kBoxDecoration =  InputDecoration(
         OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)));
 const kStartBoxDecoration = InputDecoration(
     hintText: 'Start',
-    filled: true,
+    // filled: true,
     suffixIcon: Icon(
       Icons.access_time_rounded,
       color: Colors.grey,

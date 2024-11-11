@@ -34,8 +34,6 @@ The app addresses the need for a streamlined, digital process to book the colleg
 
 ## Screenshots
 
-![Screenshot_20240402_164519](https://github.com/user-attachments/assets/48d51382-25ad-4e9e-8849-58245a2e7bd5)
-![Screenshot_20240402_164506](https://github.com/user-attachments/assets/a44200a7-bbaf-44fc-87dd-b3816af7fa87)
-![Screenshot_20240402_165008](https://github.com/user-attachments/assets/a6d9864a-f726-4f31-90cf-d2b0140802ff)
-![Screenshot_20240402_164510](https://github.com/user-attachments/assets/f3c53edb-2018-4f1e-a3ee-35cc32e47fa6)
+![Auditorium Management App](https://github.com/user-attachments/assets/31884c24-f3b4-4e5c-b5c6-06e87c1f77a6)
+
 
